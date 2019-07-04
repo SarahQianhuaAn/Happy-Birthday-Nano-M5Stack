@@ -25,7 +25,7 @@
 #define NOTE_C7L 248
 SPEAKER Speaker;
 
-int noteNum = 29;
+int noteNum = 25;
 int melody[] = {
   NOTE_C5L, NOTE_C5L, NOTE_C6L, NOTE_C5L, NOTE_C1, NOTE_C7L, 
   NOTE_C5L, NOTE_C5L, NOTE_C6L, NOTE_C5L, NOTE_C2, NOTE_C1,
@@ -44,13 +44,9 @@ void setup() {
   for (int thisNote = 0; thisNote < noteNum; thisNote++) {
     int noteDuration = 2000 / noteDurations[thisNote];
     int pauseBetweenNotes = noteDuration * 1.30;
-    if (melody[thisNote]!='0')
-      {M5.Speaker.tone(melody[thisNote],noteDuration);
-      }
-    else
-      {M5.Speaker.mute();}
-      delay(pauseBetweenNotes);
-      M5.Speaker.mute();
+    M5.Speaker.tone(melody[thisNote],noteDuration);
+    delay(pauseBetweenNotes);
+    M5.Speaker.mute();
   }
 }
 
